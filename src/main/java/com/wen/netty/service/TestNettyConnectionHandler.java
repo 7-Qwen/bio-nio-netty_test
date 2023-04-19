@@ -17,11 +17,10 @@ public class TestNettyConnectionHandler extends ChannelInboundHandlerAdapter {
         System.out.println("---搜索到连接---:" + Thread.currentThread().getName());
         super.channelActive(ctx);
     }
-
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
         ByteBuf byteBuf = (ByteBuf) msg;
-        System.out.println(byteBuf.toString(Charset.forName("utf-8")));
+        String s = byteBuf.toString(Charset.forName("utf-8"));
         super.channelRead(ctx, msg);
     }
 }
